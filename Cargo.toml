@@ -1,0 +1,27 @@
+[package]
+name = "ledragon-usb-firmware"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+imxrt-log = { version = "0.1.2", features = ["log"] }
+log = "0.4.27"
+rtic = { version = "2", features = ["thumbv7-backend"] }
+rtic-monotonics = { version = "1", default-features = false, features = [
+    "cortex-m-systick",
+] }
+
+teensy4-panic = { version = "0.2", features = ["log"] }
+usb-device = "0.2"
+
+[dependencies.teensy4-bsp]
+version = "0.5"
+features = [
+    # Use the BSP's runtime.
+    "rt",
+]
+
+# Don't optimize build dependencies, like proc macros.
+# Helps with build times.
+[profile.release.build-override]
+opt-level = 0
