@@ -14,8 +14,8 @@ impl<'ep, B: UsbBus> LEDragonUsbClass<'ep, B> {
     pub fn new<'alloc: 'ep>(alloc: &'alloc UsbBusAllocator<B>) -> Self {
         Self {
             interface: alloc.interface(),
-            write_endpoint: alloc.interrupt(64, 255),
-            read_endpoint: alloc.bulk(64),
+            write_endpoint: alloc.bulk(512),
+            read_endpoint: alloc.bulk(512),
         }
     }
 

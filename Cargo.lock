@@ -358,6 +358,7 @@ dependencies = [
 name = "ledragon-usb-firmware"
 version = "0.1.0"
 dependencies = [
+ "cortex-m",
  "imxrt-log",
  "log",
  "rtic",
